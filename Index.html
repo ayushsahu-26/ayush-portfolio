@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ayush Sahu | Performance Marketing Portfolio</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f4f7fb;--card:#ffffffd9;--tx:#10151c;--mu:#566170;--a:#0082c3;--b:#00a8e8;--c:#7c5cff;--bd:#d9e0e8;--p:0,130,195;--ok:#17894a;--bad:#c63b3b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#080c12;--card:#111823d9;--tx:#e9eef5;--mu:#93a0b0;--a:#2aa8ec;--b:#31d6ff;--c:#9b82ff;--bd:#223041;--p:49,214,255;--ok:#4cc27f;--bad:#ef7b7b}}
+:root[data-theme="dark"]{--bg:#080c12;--card:#111823d9;--tx:#e9eef5;--mu:#93a0b0;--a:#2aa8ec;--b:#31d6ff;--c:#9b82ff;--bd:#223041;--p:49,214,255;--ok:#4cc27f;--bad:#ef7b7b}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+body.fc,body.fc a{cursor:none}
+a{color:var(--a)}
+#net{position:fixed;inset:0;z-index:0;pointer-events:none}
+main{position:relative;z-index:1}
+section{max-width:1000px;margin:0 auto;padding:72px 18px}
+h2{font-size:1.6rem;margin:0 0 6px}
+h2 span{background:linear-gradient(90deg,var(--a),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
+.mu{color:var(--mu)}.sm{font-size:.88rem}
+/* loader */
+#ld{position:fixed;inset:0;z-index:999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;transition:opacity .7s,visibility .7s}
+#ld.hide{opacity:0;visibility:hidden}
+.sp{width:54px;height:54px;border-radius:50%;border:3px solid var(--bd);border-top-color:var(--b);animation:spin 1s linear infinite;box-shadow:0 0 20px rgba(var(--p),.4)}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* cursor */
+.cd,.cr{position:fixed;top:0;left:0;z-index:998;pointer-events:none;border-radius:50%;display:none}
+.fc .cd,.fc .cr{display:block}
+.cd{width:8px;height:8px;background:var(--b);box-shadow:0 0 14px 4px rgba(var(--p),.7);margin:-4px 0 0 -4px}
+.cr{width:36px;height:36px;border:1.5px solid rgba(var(--p),.6);margin:-18px 0 0 -18px;transition:width .25s,height .25s,margin .25s,background .25s}
+.cr.big{width:60px;height:60px;margin:-30px 0 0 -30px;background:rgba(var(--p),.1)}
+/* hero */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.25fr .75fr;gap:32px;align-items:center}
+.sh{font-size:clamp(2.4rem,7vw,4.2rem);line-height:1.08;margin:0 0 8px;background:linear-gradient(110deg,var(--tx) 0%,var(--a) 25%,var(--c) 50%,var(--b) 75%,var(--tx) 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shim 4s linear infinite}
+@keyframes shim{to{background-position:-250% 0}}
+.tag{display:inline-block;font-size:.76rem;border:1px solid var(--bd);border-radius:99px;padding:2px 11px;margin:0 6px 6px 0;color:var(--mu);background:var(--card)}
+.note{border-left:3px solid var(--b);background:var(--card);padding:10px 14px;border-radius:6px;font-size:.86rem;color:var(--mu);margin-top:16px}
+.avw{position:relative;width:min(280px,70vw);aspect-ratio:1;margin:auto;display:grid;place-items:center}
+.av{width:46%;aspect-ratio:1;border-radius:50%;background:linear-gradient(135deg,var(--a),var(--c));display:grid;place-items:center;font-size:clamp(1.8rem,5vw,2.6rem);font-weight:800;color:#fff;letter-spacing:2px;animation:pul 2.4s ease-in-out infinite;box-shadow:0 0 40px rgba(var(--p),.5);position:relative;z-index:2}
+@keyframes pul{50%{transform:scale(1.08);box-shadow:0 0 70px rgba(var(--p),.8)}}
+.rg{position:absolute;width:46%;aspect-ratio:1;border-radius:50%;border:2px solid rgba(var(--p),.7);animation:rip 3s ease-out infinite;opacity:0}
+.rg:nth-child(2){animation-delay:1s}.rg:nth-child(3){animation-delay:2s}
+@keyframes rip{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.2);opacity:0}}
+/* marquee */
+.mq{overflow:hidden;border-block:1px solid var(--bd);background:var(--card);padding:14px 0;position:relative;z-index:1}
+.mt{display:flex;gap:44px;width:max-content;animation:mq 28s linear infinite;white-space:nowrap;font-weight:600;color:var(--mu)}
+.mt span:before{content:"◆";color:var(--b);margin-right:44px}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* about + 3d */
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.sc{perspective:900px;display:grid;place-items:center;min-height:300px}
+.c3{width:min(300px,100%);padding:22px;border-radius:18px;background:linear-gradient(145deg,rgba(var(--p),.18),var(--card));border:1px solid rgba(var(--p),.5);box-shadow:0 20px 60px rgba(var(--p),.25),0 0 30px rgba(var(--p),.2);transform-style:preserve-3d;animation:fl 7s ease-in-out infinite alternate}
+@keyframes fl{0%{transform:rotateY(-25deg) rotateX(8deg) translateY(0)}50%{transform:rotateY(0) rotateX(-4deg) translateY(-14px)}100%{transform:rotateY(25deg) rotateX(8deg) translateY(0)}}
+.c3 b{display:block;font-size:1.5rem;color:var(--b)}.c3 div{margin-bottom:12px;transform:translateZ(30px)}.c3 small{color:var(--mu)}
+/* skills */
+.sk{margin-bottom:16px}.sk div:first-child{display:flex;justify-content:space-between;font-size:.92rem;margin-bottom:5px}
+.tr{height:9px;border-radius:9px;background:var(--bd);overflow:hidden}
+.fl{height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--a),var(--b),var(--c));box-shadow:0 0 12px rgba(var(--p),.6);transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.go .fl{width:var(--w)}
+/* projects */
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.pj{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:22px 18px 18px;transition:transform .3s,box-shadow .3s;backdrop-filter:blur(6px)}
+.pj:before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--a),var(--b),var(--c),var(--a));background-size:200% 100%;transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.pj:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(var(--p),.25)}
+.pj:hover:before{transform:scaleX(1);animation:sw 1.6s linear infinite}
+@keyframes sw{to{background-position:-200% 0}}
+.pj h3{margin:0 0 6px}.pj ul{margin:8px 0 0;padding-left:18px}.pj li{margin-bottom:4px}
+.wide{grid-column:1/-1}.wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.86rem}th,td{padding:7px 9px;border-bottom:1px solid var(--bd);text-align:right;white-space:nowrap}th:first-child,td:first-child{text-align:left}th{color:var(--mu)}
+.ok{color:var(--ok);font-weight:600}.bad{color:var(--bad);font-weight:600}
+.ad{border:1px solid var(--bd);border-radius:8px;padding:9px 11px;margin-top:8px;font-size:.86rem}.ad b{color:var(--a)}
+/* contact */
+.ct{text-align:center;padding-bottom:110px}
+.rw{position:relative;width:200px;height:200px;margin:24px auto;display:grid;place-items:center}
+.rw .rg{width:100px;border-width:2px}
+.rw .av{width:100px;font-size:1rem;letter-spacing:0}
+.ct p{margin:4px 0}
+/* reveal */
+.rv,.rl,.rr{opacity:0;transition:opacity .9s ease,transform .9s ease}
+.rv{transform:translateY(40px)}.rl{transform:translateX(-60px)}.rr{transform:translateX(60px)}
+.in{opacity:1;transform:none}
+@media (max-width:760px){.hero,.ab,.pg{grid-template-columns:1fr}.hero{padding-top:30px;min-height:auto}.avw{order:-1;width:200px}section{padding:52px 16px}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div id="ld"><div class="sp"></div><div class="mu sm">Loading portfolio…</div></div>
+<canvas id="net"></canvas><div class="cd"></div><div class="cr"></div>
+<main>
+<section class="hero" id="home">
+<div class="rl">
+<p class="mu" style="margin:0 0 6px">Performance Marketing Intern · Decathlon</p>
+<h1 class="sh">Ayush Sahu</h1>
+<p>MBA, IIM Tiruchirappalli (PGPM 2026-28). Engineer turned growth-minded problem solver, who managed a ₹148 Cr package, 100+ stakeholders and ₹34 Cr of bill certifications, and now wants to turn that numbers-first discipline into ROAS.</p>
+<span class="tag">Data-driven</span><span class="tag">Excel / Sheets</span><span class="tag">Cross-team</span><span class="tag">Sport lover</span>
+<div class="note"><b>Transparency:</b> I have not run paid campaigns professionally. The work samples below use <b>hypothetical data</b> built for this role. Experience and certifications listed are real.</div>
+</div>
+<div class="avw rr"><div class="rg"></div><div class="rg"></div><div class="rg"></div><div class="av">AS</div></div>
+</section>
+
+<div class="mq"><div class="mt" id="mt"><span>L&amp;T Realty</span><span>IIM Tiruchirappalli</span><span>Flipkart WIRED</span><span>Yale (Coursera)</span><span>Adani Dahanu Thermal Power Station</span><span>JWL KOVIS India</span><span>Karwaa.n</span><span>Jabalpur Engineering College</span></div></div>
+
+<section id="about">
+<div class="ab">
+<div class="sc rl"><div class="c3"><div><b>₹148.72 Cr</b><small>MEP package managed</small></div><div><b>100+</b><small>stakeholders coordinated</small></div><div><b>1,200+</b><small>quality inspections, 93%+ audit score</small></div><div style="margin:0"><b>₹34.28 Cr</b><small>bills certified in 10-day cycles</small></div></div></div>
+<div class="rr">
+<h2>What I <span>bring</span></h2>
+<p><b>Analytical mindset:</b> I live in numbers, trackers and checklists, and I'm comfortable in Excel and Sheets.</p>
+<p><b>Cross-functional:</b> I coordinated consultants, contractors, design and finance teams, the same bridge role this internship needs between marketing, product and tech.</p>
+<p><b>Structured thinker:</b> Semi-finalist at Flipkart WIRED 2026; completed Yale's Financial Markets course; built an IoT robot (ESP8266, GPS, Android, cloud).</p>
+</div></div>
+</section>
+
+<section id="skills">
+<h2 class="rv">Skills <span>snapshot</span></h2>
+<p class="mu sm rv">Self-rated, and I have marked what I am still learning.</p>
+<div id="sks" style="margin-top:18px">
+<div class="sk rl"><div><span>Stakeholder coordination</span><span>90%</span></div><div class="tr"><div class="fl" style="--w:90%"></div></div></div>
+<div class="sk rr"><div><span>Process improvement</span><span>85%</span></div><div class="tr"><div class="fl" style="--w:85%"></div></div></div>
+<div class="sk rl"><div><span>Excel / Google Sheets</span><span>80%</span></div><div class="tr"><div class="fl" style="--w:80%"></div></div></div>
+<div class="sk rr"><div><span>Data analysis and reporting</span><span>75%</span></div><div class="tr"><div class="fl" style="--w:75%"></div></div></div>
+<div class="sk rl"><div><span>Financial metrics and unit economics</span><span>70%</span></div><div class="tr"><div class="fl" style="--w:70%"></div></div></div>
+<div class="sk rr"><div><span>Google Ads, Meta Ads, GA (learning now)</span><span>25%</span></div><div class="tr"><div class="fl" style="--w:25%"></div></div></div>
+</div>
+</section>
+
+<section id="work">
+<h2 class="rv">Work <span>samples</span></h2>
+<p class="mu sm rv">Built for this role. Data is illustrative.</p>
+<div class="pg">
+<div class="pj rl"><h3>1. Campaign funnel: Decathlon running</h3>
+<ul><li><b>Capture:</b> Google Search (brand and generic)</li><li><b>Convert:</b> Shopping / PMax with margin-based feed labels</li><li><b>Create demand:</b> YouTube to sport and fitness audiences</li><li><b>Prospect:</b> Meta lookalikes of buyers</li><li><b>Re-engage:</b> cart abandoners, 7-day viewers</li></ul>
+<p class="mu sm" style="margin-top:8px">Exclude buyers and remarketing pools from prospecting to cut overlap. Add store-visit and app-install goals near stores.</p></div>
+<div class="pj rr"><h3>2. Search ad copy tests</h3>
+<div class="ad"><b>Decathlon Running Shoes</b> · Cushioned Daily Trainers · Free Store Pickup</div>
+<div class="ad"><b>Trail Running Gear</b> · Grip. Comfort. Value. · Shop Decathlon</div>
+<p class="mu sm" style="margin-top:8px">Rotate benefit-led (price, pickup) against product-led headlines, then compare CTR and conversion rate.</p></div>
+<div class="pj wide rv"><h3>3. ROAS dashboard and optimization insight</h3>
+<p class="mu sm">Hypothetical week. ROAS = Revenue ÷ Spend. CAC = Spend ÷ Orders.</p>
+<div class="wrap"><table id="t"><thead><tr><th>Campaign</th><th>Spend ₹k</th><th>Revenue ₹k</th><th>Orders</th><th>ROAS</th><th>CAC ₹</th></tr></thead><tbody></tbody></table></div>
+<ul><li><span class="bad">YouTube and Meta Prospecting</span> trail the blend, so I'd check assisted conversions before cutting.</li><li><span class="ok">Meta Remarketing (5.0x)</span> is efficient but small: test wider windows and fresh creatives.</li><li>Brand Search flatters the blend, so report non-brand ROAS separately.</li><li>Test: shift 10% of YouTube budget to PMax for 14 days and compare ROAS.</li></ul></div>
+</div>
+</section>
+
+<section class="ct" id="contact">
+<h2 class="rv">Let's <span>talk</span></h2>
+<p class="mu rv">Happy to walk through any of this.</p>
+<div class="rw rv"><div class="rg"></div><div class="rg"></div><div class="rg"></div><div class="av">Hi!</div></div>
+<p>ayush.p26016@iimtrichy.ac.in · +91 7024095902</p>
+<p><a href="https://www.linkedin.com/in/ayush-sahu-41331a21a">LinkedIn</a></p>
+</section>
+</main>
+<script>
+(function(){
+var d=document,b=d.body;
+// loader
+function hl(){d.getElementById('ld').classList.add('hide')}
+window.addEventListener('load',function(){setTimeout(hl,700)});setTimeout(hl,3500);
+// marquee duplicate
+var mt=d.getElementById('mt');mt.innerHTML+=mt.innerHTML;
+// dashboard
+var D=[["Search: Brand",40,360,144],["Search: Generic",80,280,112],["Shopping / PMax",120,540,216],["YouTube",50,100,40],["Meta: Prospecting",90,225,90],["Meta: Remarketing",40,200,80]],S=0,R=0,O=0,h="";
+D.forEach(function(r){S+=r[1];R+=r[2];O+=r[3]});
+D.forEach(function(r){var x=r[2]/r[1];h+="<tr><td>"+r[0]+"</td><td>"+r[1]+"</td><td>"+r[2]+"</td><td>"+r[3]+"</td><td class='"+(x>=R/S?"ok":"bad")+"'>"+x.toFixed(1)+"x</td><td>"+Math.round(r[1]*1000/r[3])+"</td></tr>"});
+h+="<tr><td><b>Blended</b></td><td><b>"+S+"</b></td><td><b>"+R+"</b></td><td><b>"+O+"</b></td><td><b>"+(R/S).toFixed(2)+"x</b></td><td><b>"+Math.round(S*1000/O)+"</b></td></tr>";
+d.querySelector("#t tbody").innerHTML=h;
+// reveal + skill bars
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+d.querySelectorAll('.rv,.rl,.rr').forEach(function(el){io.observe(el)});
+var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('go');so.unobserve(e.target)}})},{threshold:.3});
+so.observe(d.getElementById('sks'));
+// cursor
+if(matchMedia('(pointer:fine)').matches){
+b.classList.add('fc');
+var cd=d.querySelector('.cd'),cr=d.querySelector('.cr'),mx=-100,my=-100,rx=-100,ry=-100;
+d.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cd.style.transform='translate('+mx+'px,'+my+'px)'});
+d.addEventListener('mouseover',function(e){cr.classList.toggle('big',!!e.target.closest('a,.pj,.tag'))});
+(function t(){rx+=(mx-rx)*.15;ry+=(my-ry)*.15;cr.style.transform='translate('+rx+'px,'+ry+'px)';requestAnimationFrame(t)})();
+}
+// particle network
+var cv=d.getElementById('net'),x=cv.getContext('2d'),P=[],W,H,col='0,130,195';
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;col=getComputedStyle(d.documentElement).getPropertyValue('--p').trim();P=[];for(var i=0,n=Math.min(80,Math.floor(W*H/16000));i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6})}
+rs();addEventListener('resize',rs);
+(function f(){x.clearRect(0,0,W,H);for(var i=0;i<P.length;i++){var p=P[i];p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;x.fillStyle='rgba('+col+',.7)';x.beginPath();x.arc(p.x,p.y,1.8,0,6.283);x.fill();for(var j=i+1;j<P.length;j++){var q=P[j],dx=p.x-q.x,dy=p.y-q.y,s=dx*dx+dy*dy;if(s<16000){x.strokeStyle='rgba('+col+','+(.35*(1-s/16000))+')';x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}}}requestAnimationFrame(f)})();
+})();
+</script>
+</body>
+</html>
